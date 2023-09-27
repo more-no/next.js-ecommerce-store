@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getProductById } from '../../../database/products';
 import { getCookie } from '../../../utilities/cookies';
 import { parseJson } from '../../../utilities/json';
@@ -26,10 +27,10 @@ export default function SingleProductPage(props) {
   return (
     <div>
       Here goes the Product's Name
-      <h1> {SingleProductPage.name} </h1>;
+      <h1> {SingleProductPage.name} </h1>
       <Image
         data-test-id="product-image"
-        src={`/images/${singleProduct.name}.png`}
+        src={`/images/${singleProduct.name}.jpg`}
         width={200}
         height={200}
         alt={singleProduct.name}
