@@ -34,7 +34,6 @@ export default function HomePage() {
               width={400}
               height={400}
             />
-            {console.log(product.name)}
           </div>
         );
       })}
