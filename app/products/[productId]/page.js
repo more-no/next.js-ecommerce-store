@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import { products } from '../../../database/products';
 import { getProductById } from '../../../database/products';
-import { parseJson } from '../../../utilities/json';
-import AddToCart from '../../AddToCart';
+import AddToCartButton from './AddToCartButton';
 
 // import Descrizione del prodotto ?!?
 
@@ -40,7 +40,10 @@ export default function SingleProductPage(props) {
       {/*     ▪ Clicking this button will add the amount from the product quantity input to any quantity of this product already in the cart
         • For example, if the amount in the product quantity input is 2 and the existing quantity of this product in the cart is 3, then after clicking the button, the quantity of this product in the cart will become 5
       ◦ Negative quantity values should not be possible */}
-      <AddToCart id={singleProduct.id} data-test-id="product-add-to-cart" />
+      <AddToCartButton
+        id={singleProduct.id}
+        data-test-id="product-add-to-cart"
+      />
     </div>
   );
 }

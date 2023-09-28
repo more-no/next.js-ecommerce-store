@@ -1,9 +1,8 @@
 'use client';
-
-import CheckoutButton from '../CheckoutButton';
+import CheckoutButton from './CheckoutButton';
 import { useState } from 'react';
 import { products } from '../../database/products';
-import AddToCart from '../AddToCart';
+import AddToCart from '../products/[productId]/AddToCartButton';
 
 // • A Cart page (containing a list where products appear when you click on the "Add to cart" button on the single product page), which also shows the total price of all products
 // ◦ Each product needs to be contained in an element with the HTML attribute data-test-id="cart-product-<product id>"
@@ -22,7 +21,7 @@ import AddToCart from '../AddToCart';
 //    where i store the user inputs ??
 
 export default function Cart(id, quantity) {
-  const [userOrder, setUserOrder] = useState([]);
+  // const [userOrder, setUserOrder] = useState([]);
 
   // const newOrder = {
   //   name:

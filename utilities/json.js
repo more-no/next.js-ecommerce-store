@@ -1,9 +1,9 @@
-import sjson from 'secure-json-parse';
+import json from 'secure-json-parse';
 
 export function parseJson(stringifiedJson) {
   if (!stringifiedJson) return undefined;
   try {
-    return sjson(stringifiedJson);
+    return json(stringifiedJson);
   } catch {
     return undefined;
   }
