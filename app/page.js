@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import styles from './page.module.css';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../database/products';
-import Header from './Header';
 
 // +++++ A Products page (where all the products are listed)
 // +++++ ▪  Minimum of 4 different products
@@ -16,8 +15,9 @@ export default function HomePage() {
 
   return (
     <main>
-      <Header data-test-id="products-link" />
       <h1>These are our Products: </h1>
+      <br />
+      <br />
       {products.map((product) => {
         return (
           <div key={`product-div-${product.id}`}>
@@ -25,14 +25,16 @@ export default function HomePage() {
               data-test-id="product-<product id>"
               href={`/products/${product.id}`}
             >
-              {product.name}
-              <Image
-                src={`/images/${product.name}.jpg`}
-                alt={product.name}
-                width={200}
-                height={200}
-              />
+              {' '}
+              {product.name}{' '}
             </Link>
+            <Image
+              src={`/images/${product.name}.jpg`}
+              alt={product.name}
+              width={400}
+              height={400}
+            />
+            {console.log(product.name)}
           </div>
         );
       })}

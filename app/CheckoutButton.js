@@ -3,5 +3,5 @@
 import CheckoutPage from './CheckoutPage';
 
 export default function CheckoutButton() {
-  // connect to the CheckoutPage
+  return <button>Check Out</button>;
 }

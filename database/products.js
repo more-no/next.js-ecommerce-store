@@ -1,3 +1,5 @@
+// import 'server-only';
+
 export const products = [
   { id: 1, name: 'product_1', description: 'descrizione uno' },
   { id: 2, name: 'product_2', description: 'descrizione due' },

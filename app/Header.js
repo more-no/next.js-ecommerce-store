@@ -1,4 +1,5 @@
-import Cart from './Cart';
+import Link from 'next/link';
+import Cart from './cart/page';
 import styles from './page.module.css';
 
 // +++++ • A header with a link to the Cart, showing the number of items in the cart
@@ -12,9 +13,12 @@ import styles from './page.module.css';
 export default function Header() {
   return (
     <header>
-      <Cart />
+      <Link data-test-id="cart-link" href="/cart">
+        To my Cart
+      </Link>
+      <br />
+      <br />
       {/* <NumberOfitems /> */}
-      ??? what Link ???styles
       {/* <Count data-test-id="cart-count" /> */}
     </header>
   );
