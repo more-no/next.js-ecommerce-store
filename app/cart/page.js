@@ -1,6 +1,6 @@
 import CheckoutButton from './CheckoutButton';
 // import { useState } from 'react';
-import { products } from '../../database/products';
+// import { products } from '../../database/products';
 // import AddToCart from '../products/[productId]/AddToCartButton';
 
 // • A Cart page (containing a list where products appear when you click on the "Add to cart" button on the single product page), which also shows the total price of all products

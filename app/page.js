@@ -1,4 +1,4 @@
-import styles from './page.module.css';
+// import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { setCookie } from '../utilities/actions';
@@ -27,15 +27,15 @@ export default function HomePage() {
             <Link
               data-test-id="product-<product id>"
               href={`/products/${product.id}`}
-              // rel="preload"
-              as="image"
+              rel="preload"
             >
+              ' {product.name} '
               <Image
                 src={`/images/${product.name}.jpg`}
                 alt={product.name}
-                width={150}
-                height={150}
-                // priority={true}
+                width={300}
+                height={300}
+                priority={true}
               />
             </Link>
           </div>
