@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 
 // +++++ ◦ Clicking on the checkout button should navigate to the checkout page

@@ -27,16 +27,17 @@ export default function HomePage() {
             <Link
               data-test-id="product-<product id>"
               href={`/products/${product.id}`}
+              // rel="preload"
+              as="image"
             >
-              {' '}
-              {product.name}{' '}
+              <Image
+                src={`/images/${product.name}.jpg`}
+                alt={product.name}
+                width={150}
+                height={150}
+                // priority={true}
+              />
             </Link>
-            <Image
-              src={`/images/${product.name}.jpg`}
-              alt={product.name}
-              width={400}
-              height={400}
-            />
           </div>
         );
       })}
