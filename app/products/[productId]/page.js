@@ -1,9 +1,8 @@
+'use client';
 import Image from 'next/image';
+import { useState } from 'react';
 import { products } from '../../../database/products';
 import { getProductById } from '../../../database/products';
-import AddToCartButton from './AddToCartButton';
-
-// import Descrizione del prodotto ?!?
 
 // A page for each single product (when you click on the product it goes to this page) with ability to add a quantity to the cart
 // ◦ The single product URL needs to contain the id (eg. /products/<product id>)
@@ -14,15 +13,48 @@ import AddToCartButton from './AddToCartButton';
 //     +++++ ▪  an input field here with type=”number”
 //     +++++ ▪  The starting quantity should be 1
 // +++++ ◦ The add to cart button needs to have the HTML attribute data-test-id="product-add-to-cart"
+// +++++ ◦ Negative quantity values should not be possible
+
+export function AddToCartButton(props) {
+  const [userInput, setUserInput] = useState();
+  const [quantity, setQuantity] = useState(0);
+
+  const chosenProduct = {
+    Id: props.id,
+    Price: props.price,
+    Quantity: quantity,
+  };
+  console.log(chosenProduct);
+
+  const handleAddToCart = () => {
+    // Update the quantity with the user input
+    setQuantity(Number(userInput));
+  };
+
+  return (
+    <>
+      <input
+        data-test-id="product-quantity"
+        onChange={(event) => {
+          setUserInput(event.currentTarget.value);
+        }}
+        type="number"
+        min="1"
+      />
+      <button onClick={handleAddToCart}>Add to Cart</button>
+      <div> Quantity: {userInput}</div>
+    </>
+  );
+}
 
 export default function SingleProductPage(props) {
   const singleProduct = getProductById(Number(props.params.productId));
 
+  console.log(singleProduct);
+
   // if (!singleProduct) {
   //   return notFound();
   // }
-
-  const product1Price = 30;
 
   return (
     <div>
@@ -36,11 +68,9 @@ export default function SingleProductPage(props) {
         alt={singleProduct.name}
       />
       <h3>Product price in €: </h3>
-      <h3 data-test-id="product-price"> {product1Price} </h3>
-      {/*     ▪ Clicking this button will add the amount from the product quantity input to any quantity of this product already in the cart
-        • For example, if the amount in the product quantity input is 2 and the existing quantity of this product in the cart is 3, then after clicking the button, the quantity of this product in the cart will become 5
-      ◦ Negative quantity values should not be possible */}
+      <h3 data-test-id="product-price"> {singleProduct.price} </h3>
       <AddToCartButton
+        price={singleProduct.price}
         id={singleProduct.id}
         data-test-id="product-add-to-cart"
       />

@@ -1,8 +1,7 @@
-'use client';
 import CheckoutButton from './CheckoutButton';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { products } from '../../database/products';
-import AddToCart from '../products/[productId]/AddToCartButton';
+// import AddToCart from '../products/[productId]/AddToCartButton';
 
 // • A Cart page (containing a list where products appear when you click on the "Add to cart" button on the single product page), which also shows the total price of all products
 // ◦ Each product needs to be contained in an element with the HTML attribute data-test-id="cart-product-<product id>"
@@ -23,14 +22,12 @@ import AddToCart from '../products/[productId]/AddToCartButton';
 export default function Cart(id, quantity) {
   // const [userOrder, setUserOrder] = useState([]);
 
-  // const newOrder = {
-  //   name:
-  // }
+  // QUI COPIO VISUALIZZO SEMPLICEMENTE LA STRUTTURA DEL COOKIE
 
   return (
     <div>
       <ul>
-        {/* here will go a function to put all the selected elements in a    list  */}
+        {/* here will go a function to put all the selected elements in a list  */}
       </ul>
       {/* <h3 data-test-id="cart-total"> {totalPrice} </h3> */}
       <CheckoutButton data-test-id="cart-checkout" />

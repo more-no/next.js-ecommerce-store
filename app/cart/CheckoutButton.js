@@ -1,7 +1,4 @@
-'use client';
-
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
 // +++++ ◦ Clicking on the checkout button should navigate to the checkout page
 //    create an useEffect to handle initial state of the Cart
