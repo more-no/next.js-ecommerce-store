@@ -139,7 +139,7 @@ export default function CheckoutPage() {
               </label>
             </li>
           </ul>
-          <ConfirmButton />
+          {/* <ConfirmButton /> */}
         </form>
       </fieldset>
     </>

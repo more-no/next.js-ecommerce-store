@@ -1,7 +1,7 @@
 // import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { setCookie } from '../utilities/actions';
+import { setCookie } from '../utilities/cookies';
 import { getProducts } from '../database/products';
 
 // +++++ A Products page (where all the products are listed)
@@ -11,7 +11,8 @@ import { getProducts } from '../database/products';
 // +++++   ▪ This link will lead to its single product page
 // +++++   ▪ The header (described below) needs to have a link to the products page with the HTML attribute data-test-id="products-link"
 
-export const cart = setCookie([]);
+// export const cart = setCookie([]);
+// --- creato in actions inside the HandleCart function ---
 
 export default function HomePage() {
   const products = getProducts();

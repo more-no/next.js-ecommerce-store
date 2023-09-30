@@ -1,4 +1,5 @@
 import CheckoutButton from './CheckoutButton';
+
 // import { useState } from 'react';
 // import { products } from '../../database/products';
 // import AddToCart from '../products/[productId]/AddToCartButton';

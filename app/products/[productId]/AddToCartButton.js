@@ -1,36 +1,33 @@
 'use client';
 import { useState } from 'react';
-import { AddToCart } from './AddToCart';
+import { handleCart } from './actions';
 
-export function AddToCartButton(props) {
-  const [userInput, setUserInput] = useState();
+export function AddToCartButton({ id, price }) {
   const [quantity, setQuantity] = useState(0);
 
   const chosenProduct = {
-    Id: props.id,
-    Price: props.price,
-    Quantity: quantity,
+    id: id,
+    price: price,
+    quantity: quantity,
   };
-  console.log(chosenProduct);
 
-  const handleAddToCart = () => {
-    // Update the quantity with the user input
-    setQuantity(Number(userInput));
-  };
+  console.log(quantity);
 
   return (
-    <>
+    <form>
       <input
         data-test-id="product-quantity"
+        value={quantity}
         onChange={(event) => {
-          setUserInput(event.currentTarget.value);
+          setQuantity(event.currentTarget.value);
         }}
         type="number"
         min="1"
       />
-      <button onClick={handleAddToCart}>Add to Cart</button>
-      <div> Quantity: {userInput}</div>
-      <AddToCart toCart={chosenProduct} />
-    </>
+      <button formAction={async () => await handleCart(chosenProduct)}>
+        Add to Cart
+      </button>
+      <div> Quantity: {chosenProduct.quantity}</div>
+    </form>
   );
 }

@@ -37,8 +37,8 @@ export default function SingleProductPage(props) {
       <h3>Product price in €: </h3>
       <h3 data-test-id="product-price"> {singleProduct.price} </h3>
       <AddToCartButton
-        price={singleProduct.price}
         id={singleProduct.id}
+        price={singleProduct.price}
         data-test-id="product-add-to-cart"
       />
     </div>
