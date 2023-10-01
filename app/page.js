@@ -1,7 +1,6 @@
 // import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { setCookie } from '../utilities/cookies';
 import { getProducts } from '../database/products';
 
 // +++++ A Products page (where all the products are listed)
@@ -30,7 +29,7 @@ export default function HomePage() {
               href={`/products/${product.id}`}
               rel="preload"
             >
-              ' {product.name} '
+              {product.name}
               <Image
                 src={`/images/${product.name}.jpg`}
                 alt={product.name}

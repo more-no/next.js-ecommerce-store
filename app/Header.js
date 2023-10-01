@@ -1,5 +1,4 @@
 import Link from 'next/link';
-// import Cart from './cart/page';
 // import styles from './page.module.css';
 
 // +++++ • A header with a link to the Cart, showing the number of items in the cart

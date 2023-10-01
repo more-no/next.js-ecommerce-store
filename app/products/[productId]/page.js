@@ -16,7 +16,7 @@ import { AddToCartButton } from './AddToCartButton';
 export default function SingleProductPage(props) {
   const singleProduct = getProductById(Number(props.params.productId));
 
-  console.log(singleProduct);
+  // console.log(singleProduct);
 
   // if (!singleProduct) {
   //   return notFound();

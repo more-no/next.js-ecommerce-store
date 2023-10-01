@@ -1,4 +1,5 @@
-import ConfirmButton from './ConfirmButton';
+// import ConfirmButton from './ConfirmButton';
+import ConfirmButton, { myAction } from './actions';
 
 // +++++ • A Checkout page which shows the total and asks for shipping and payment information
 // +++++ ◦ The first name input needs to have the HTML attribute data-test-id="checkout-first-name"
@@ -139,11 +140,9 @@ export default function CheckoutPage() {
               </label>
             </li>
           </ul>
-          {/* <ConfirmButton /> */}
+          <ConfirmButton />
         </form>
       </fieldset>
     </>
   );
 }
-
-// (https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations#redirecting)

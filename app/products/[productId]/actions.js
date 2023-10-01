@@ -21,7 +21,10 @@ export async function handleCart(chosenProduct) {
     // If the product already exists in the cart, update its quantity
     newCart = currentCart.map((item, index) => {
       if (index === itemToUpdateIndex) {
-        // const updatedQuantity = (parseInt(item.quantity) += parseInt(chosenProduct.quantity));
+        let parsedItemQuantity = parseInt(item.quantity);
+        const parsedChosenProductQuantity = parseInt(chosenProduct.quantity);
+        const updatedQuantity = (parsedItemQuantity +=
+          parsedChosenProductQuantity);
         return {
           ...item,
           quantity: updatedQuantity,
