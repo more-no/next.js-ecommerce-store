@@ -2,6 +2,7 @@ import { getProducts } from '../../database/products';
 import { getCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 import RemoveButton from './RemoveButton';
+// import { setCookie } from '../../utilities/cookies';
 
 // +++++ ◦ Each product needs to be contained in an element with the HTML attribute data-test-id="cart-product-<product id>"
 // +++++    ▪ Inside the product element:
@@ -11,16 +12,16 @@ import RemoveButton from './RemoveButton';
 
 // +++++ ◦ The total price (the number without any currency symbol) needs to be directly inside an element with the HTML attribute data-test-id="cart-total"
 
-//         • the remove button needs to have the HTML attribute data-test-id="cart-product-remove-<product id>"
-
-export default function DisplayItem() {
+export default async function DisplayItem() {
   const products = getProducts();
+
   const currentCartCookie = getCookie('cart');
-  const currentCart = currentCartCookie ? parseJson(currentCartCookie) : [];
+
+  const currentCart = await (currentCartCookie
+    ? parseJson(currentCartCookie)
+    : []);
 
   let totalPrice = 0;
-
-  console.log(currentCart);
 
   return (
     <>
@@ -33,7 +34,7 @@ export default function DisplayItem() {
           console.log(itemToInclude);
 
           if (itemToInclude) {
-            const subTotal = itemToInclude.price * itemToInclude.quantity;
+            const subTotal = product.price * itemToInclude.quantity;
             totalPrice += subTotal;
 
             // If the product already in the cart display it
@@ -49,8 +50,11 @@ export default function DisplayItem() {
                     Quantity: {itemToInclude.quantity}{' '}
                   </p>
                   <p> Subtotal: {subTotal} €</p>
+                  <RemoveButton
+                    id={itemToInclude.id}
+                    data-test-id="cart-product-remove-<product id>"
+                  />
                   <br />
-                  <RemoveButton />
                 </div>
               </li>
             );
@@ -58,7 +62,7 @@ export default function DisplayItem() {
           return null;
         })}
       </ul>
-      <h3 data-test-id="cart-total"> {totalPrice} </h3>
+      <h3 data-test-id="cart-total"> Total price: {totalPrice} € </h3>
     </>
   );
 }

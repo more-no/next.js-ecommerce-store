@@ -2,12 +2,11 @@
 import { useState } from 'react';
 import { handleCart } from './actions';
 
-export function AddToCartButton({ id, price }) {
+export function AddToCartButton({ id }) {
   const [quantity, setQuantity] = useState(0);
 
   const chosenProduct = {
     id: id,
-    price: price,
     quantity: quantity,
   };
 

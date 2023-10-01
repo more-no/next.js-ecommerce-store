@@ -16,12 +16,6 @@ import { AddToCartButton } from './AddToCartButton';
 export default function SingleProductPage(props) {
   const singleProduct = getProductById(Number(props.params.productId));
 
-  // console.log(singleProduct);
-
-  // if (!singleProduct) {
-  //   return notFound();
-  // }
-
   return (
     <div>
       <br />
@@ -38,7 +32,6 @@ export default function SingleProductPage(props) {
       <h3 data-test-id="product-price"> {singleProduct.price} </h3>
       <AddToCartButton
         id={singleProduct.id}
-        price={singleProduct.price}
         data-test-id="product-add-to-cart"
       />
     </div>

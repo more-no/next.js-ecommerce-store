@@ -38,7 +38,6 @@ export async function handleCart(chosenProduct) {
       ...currentCart,
       {
         id: chosenProduct.id,
-        price: chosenProduct.price,
         quantity: chosenProduct.quantity,
       },
     ];
