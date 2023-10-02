@@ -13,7 +13,7 @@ import RemoveButton from './RemoveButton';
 // +++++ ◦ The total price (the number without any currency symbol) needs to be directly inside an element with the HTML attribute data-test-id="cart-total"
 
 export default async function DisplayItem() {
-  const products = getProducts();
+  const products = await getProducts();
 
   const currentCartCookie = getCookie('cart');
 
@@ -22,6 +22,8 @@ export default async function DisplayItem() {
     : []);
 
   let totalPrice = 0;
+
+  const totalQuantity = 0;
 
   return (
     <>

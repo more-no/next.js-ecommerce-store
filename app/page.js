@@ -13,8 +13,8 @@ import { getProducts } from '../database/products';
 // export const cart = setCookie([]);
 // --- creato in actions inside the HandleCart function ---
 
-export default function HomePage() {
-  const products = getProducts();
+export default async function HomePage() {
+  const products = await getProducts();
 
   return (
     <main>

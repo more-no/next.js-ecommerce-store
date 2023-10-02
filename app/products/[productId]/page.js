@@ -13,8 +13,9 @@ import { AddToCartButton } from './AddToCartButton';
 // +++++ ◦ The add to cart button needs to have the HTML attribute data-test-id="product-add-to-cart"
 // +++++ ◦ Negative quantity values should not be possible
 
-export default function SingleProductPage(props) {
-  const singleProduct = getProductById(Number(props.params.productId));
+export default async function SingleProductPage(props) {
+  const singleProduct = await getProductById(Number(props.params.productId));
+  console.log(singleProduct);
 
   return (
     <div>
