@@ -1,6 +1,4 @@
-// import ConfirmButton from './ConfirmButton';
 import DeleteCookie from './DeleteCookie';
-import Submit from './actions';
 
 // +++++ • A Checkout page which shows the total and asks for shipping and payment information
 // +++++ ◦ The first name input needs to have the HTML attribute data-test-id="checkout-first-name"
@@ -14,9 +12,13 @@ import Submit from './actions';
 // +++++ ◦ The expiration date input needs to have the HTML attribute data-test-id="checkout-expiration-date"
 // +++++ ◦ The security code input needs to have the HTML attribute data-test-id="checkout-security-code"
 // +++++ ◦ The form should prevent submission with any of the above fields being empty
-// +++++ ◦ The Confirm Order button needs to have the HTML attribute data-test-id="checkout-confirm-order"
 // +++++ ◦ Privacy: don't save user information (payment or other personal information) anywhere (unless you have a privacy policy and are creating a real e-commerce store)
-// +++++ ◦ Clicking on the Confirm Order button should empty the cart and navigate to the Thank You page
+
+export function generateMetadata() {
+  return {
+    title: 'Checkout | My E-Commerce App',
+  };
+}
 
 export default function CheckoutPage() {
   // connect to the CheckoutButton ???
@@ -141,7 +143,7 @@ export default function CheckoutPage() {
               </label>
             </li>
           </ul>
-          <DeleteCookie data-test-id="checkout-confirm-order" />
+          <DeleteCookie />
         </form>
       </fieldset>
     </>

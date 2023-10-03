@@ -10,9 +10,11 @@ import Header from './Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'My E-Commerce App',
+  title: {
+    default: 'Home page | My E-Commerce App',
+    template: '%s | My E-Commerce App',
+  },
   description: 'Created with Next.js',
-  // maybe add key-words
 };
 
 export default function RootLayout({ children }) {

@@ -2,7 +2,6 @@ import { getProducts } from '../../database/products';
 import { getCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 import RemoveButton from './RemoveButton';
-// import { setCookie } from '../../utilities/cookies';
 
 // +++++ ◦ Each product needs to be contained in an element with the HTML attribute data-test-id="cart-product-<product id>"
 // +++++    ▪ Inside the product element:

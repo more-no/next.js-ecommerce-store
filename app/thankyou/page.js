@@ -1,12 +1,11 @@
 // • A Thank You page
 // ◦ The page title should include Thank you for your order
 
-export const metadata = {
-  title: {
-    absolute: 'Thank you for your order',
-  },
-  description: 'Created with Next.js',
-};
+export function generateMetadata() {
+  return {
+    title: 'Thank you for your order | My E-Commerce App',
+  };
+}
 
 export default function Thankyou() {
   return (

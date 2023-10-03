@@ -9,6 +9,12 @@ import DisplayItem from './actions';
 
 // +++++ • the remove button needs to have the HTML attribute data-test-id="cart-product-remove-<product id>"
 
+export function generateMetadata() {
+  return {
+    title: 'Your Cart | My E-Commerce App',
+  };
+}
+
 export default function CartPage() {
   return (
     <>

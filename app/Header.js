@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 // +++++ • A header with a link to the Cart, showing the number of items in the cart
-// ◦ This header needs to appear on all pages
+// +++++ ◦ This header needs to appear on all pages
 // +++++ ◦ The header needs to use the HTML <header> element
 // ◦ The number of items is the sum of the quantity of all products (eg. if you have 2 apples and 3 bananas in your cart, the number of items is 5)
 // ◦ The number of items needs to update when you add or remove items from the cart

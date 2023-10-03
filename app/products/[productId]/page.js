@@ -13,6 +13,14 @@ import { AddToCartButton } from './AddToCartButton';
 // +++++ ◦ The add to cart button needs to have the HTML attribute data-test-id="product-add-to-cart"
 // +++++ ◦ Negative quantity values should not be possible
 
+export async function generateMetadata({ params }) {
+  const singleProduct = await getProductById(Number(params.productId));
+
+  return {
+    title: singleProduct ? singleProduct.name : '',
+  };
+}
+
 export default async function SingleProductPage(props) {
   const singleProduct = await getProductById(Number(props.params.productId));
   console.log(singleProduct);
