@@ -3,7 +3,7 @@ import { getCookie } from '../../utilities/cookies';
 import { setCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 
-export default async function handleRemoveItem({ id }) {
+export default async function handleRemoveSingleItem({ id }) {
   const currentCartCookie = getCookie('cart');
   const currentCart = currentCartCookie ? parseJson(currentCartCookie) : [];
 

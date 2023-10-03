@@ -1,12 +1,12 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import handleRemoveItem from './HandleRemoveItem';
+import handleRemoveSingleItem from './HandleRemoveItem';
 
 export default function RemoveButton({ id }) {
   const router = useRouter();
 
   const handleButtonClick = async () => {
-    await handleRemoveItem({ id });
+    await handleRemoveSingleItem({ id });
     console.log('item removed successfully');
 
     router.reload();
