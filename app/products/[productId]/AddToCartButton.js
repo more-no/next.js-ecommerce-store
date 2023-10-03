@@ -10,15 +10,13 @@ export function AddToCartButton({ id }) {
     quantity: quantity,
   };
 
-  console.log(quantity);
-
   return (
     <form>
       <input
         data-test-id="product-quantity"
         value={quantity}
         onChange={(event) => {
-          setQuantity(event.currentTarget.value);
+          setQuantity(parseInt(event.currentTarget.value));
         }}
         type="number"
         min="1"

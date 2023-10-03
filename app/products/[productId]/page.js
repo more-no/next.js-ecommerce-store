@@ -23,7 +23,6 @@ export async function generateMetadata({ params }) {
 
 export default async function SingleProductPage(props) {
   const singleProduct = await getProductById(Number(props.params.productId));
-  console.log(singleProduct);
 
   return (
     <div>

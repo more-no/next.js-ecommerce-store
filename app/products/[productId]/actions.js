@@ -43,8 +43,6 @@ export async function handleCart(chosenProduct) {
     ];
   }
 
-  console.log(newCart);
-
   // 4. we override the cookie
   await setCookie(JSON.stringify(newCart));
 }

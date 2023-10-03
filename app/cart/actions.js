@@ -32,8 +32,6 @@ export default async function DisplayItem() {
             (item) => item.id === product.id,
           );
 
-          console.log(itemToInclude);
-
           if (itemToInclude) {
             const subTotal = product.price * itemToInclude.quantity;
             totalPrice += subTotal;
