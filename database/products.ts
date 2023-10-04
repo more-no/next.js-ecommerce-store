@@ -29,7 +29,3 @@ export const getProductById = cache(async (id: number) => {
 // we may need to use product[0] - to get the first element of the array
 //    but a better way to do it is to destruct the array directly when we define it
 //    so we write  --const [product]--  instead than  --const product---
-
-// I only need the getAnimals and the getAnimalsById functions
-//    tutte le altre nel file non mi interessano per ora
-//      non devo cancellare o creare nuovi prodotti

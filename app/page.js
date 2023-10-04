@@ -1,4 +1,4 @@
-// import styles from './page.module.css';
+import styles from './styles.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../database/products';
@@ -15,28 +15,29 @@ export default async function HomePage() {
   return (
     <main>
       <h1>These are our Products: </h1>
-      <br />
-      <br />
-      {products.map((product) => {
-        return (
-          <div key={`product-div-${product.id}`}>
-            <Link
-              data-test-id="product-<product id>"
-              href={`/products/${product.id}`}
-              rel="preload"
-            >
-              {product.name}
-              <Image
-                src={`/images/${product.name}.jpg`}
-                alt={product.name}
-                width={300}
-                height={300}
-                priority={true}
-              />
-            </Link>
-          </div>
-        );
-      })}
+      <div className={styles.productsContainer}>
+        {products.map((product) => {
+          return (
+            <div key={`product-div-${product.id}`}>
+              <Link
+                data-test-id="product-<product id>"
+                href={`/products/${product.id}`}
+                rel="preload"
+              >
+                {/* {product.name} */}
+                <Image
+                  className={styles.productsImages}
+                  src={`/images/${product.name}.jpg`}
+                  alt={product.name}
+                  width={300}
+                  height={300}
+                  priority={true}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }

@@ -25,11 +25,13 @@ export async function handleCart(chosenProduct) {
         const parsedChosenProductQuantity = parseInt(chosenProduct.quantity);
         const updatedQuantity = (parsedItemQuantity +=
           parsedChosenProductQuantity);
+        // update its quantity
         return {
           ...item,
           quantity: updatedQuantity,
         };
       }
+      // return the update cart
       return item;
     });
   } else {

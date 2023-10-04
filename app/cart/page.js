@@ -1,5 +1,7 @@
 import CheckoutButton from './CheckoutButton';
 import DisplayItem from './actions';
+import { getCookie } from '../../utilities/cookies';
+import { parseJson } from '../../utilities/json';
 
 // +++++ • A Cart page (containing a list where products appear when you click on the "Add to cart" button on the single product page), which also shows the total price of all products
 // ...
@@ -15,7 +17,13 @@ export function generateMetadata() {
   };
 }
 
-export default function CartPage() {
+export default async function CartPage() {
+  const currentCartCookie = getCookie('cart');
+
+  const currentCart = await (currentCartCookie
+    ? parseJson(currentCartCookie)
+    : []);
+
   return (
     <>
       <h1>This is your Order: </h1>
@@ -23,7 +31,7 @@ export default function CartPage() {
       <br />
       <div>
         <DisplayItem />
-        <CheckoutButton data-test-id="cart-checkout" />
+        <CheckoutButton cart={currentCart} data-test-id="cart-checkout" />
       </div>
     </>
   );

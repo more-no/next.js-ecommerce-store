@@ -1,0 +1,35 @@
+.header {
+  background-color: rgb(106, 114, 173);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-self: auto;
+}
+
+.elements {
+  padding: 3px;
+  padding-right: 15px;
+  align-self: center;
+}
+
+.itemsCount {
+  border-style: inset;
+  padding: 3px;
+  border-color: black;
+}
+
+.productsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productsImages {
+  border-radius: 100px;
+}

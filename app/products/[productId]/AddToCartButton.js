@@ -5,6 +5,8 @@ import { handleCart } from './actions';
 export function AddToCartButton({ id }) {
   const [quantity, setQuantity] = useState(0);
 
+  console.log(id);
+
   const chosenProduct = {
     id: id,
     quantity: quantity,

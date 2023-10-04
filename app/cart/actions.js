@@ -22,8 +22,8 @@ export default async function DisplayItem() {
 
   let totalPrice = 0;
 
-  const totalQuantity = 0;
-
+  // map through the cart and display the items inside
+  // comparing the ID of each product with the IDs in the cart
   return (
     <>
       <ul>
@@ -36,7 +36,7 @@ export default async function DisplayItem() {
             const subTotal = product.price * itemToInclude.quantity;
             totalPrice += subTotal;
 
-            // If the product already in the cart display it
+            // If the product exists in the cart display it
             return (
               <li
                 data-test-id="cart-product-<product id>"
@@ -62,6 +62,7 @@ export default async function DisplayItem() {
         })}
       </ul>
       <h3 data-test-id="cart-total"> Total price: {totalPrice} € </h3>
+      <br />
     </>
   );
 }

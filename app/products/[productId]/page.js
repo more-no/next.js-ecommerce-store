@@ -1,9 +1,10 @@
+import styles from './styles.module.scss';
 import Image from 'next/image';
 import { getProductById } from '../../../database/products';
 import { AddToCartButton } from './AddToCartButton';
 
-// A page for each single product (when you click on the product it goes to this page) with ability to add a quantity to the cart
-// ◦ The single product URL needs to contain the id (eg. /products/<product id>)
+// +++++ A page for each single product (when you click on the product it goes to this page) with ability to add a quantity to the cart
+// +++++ ◦ The single product URL needs to contain the id (eg. /products/<product id>)
 // +++++ ◦ The product name needs to be directly inside an h1 element (it should be the only h1)
 // +++++ ◦ The product image needs to be in an img element with the HTML  attribute data-test-id="product-image"
 // +++++ ◦ The product price (without any currency symbol or thousands separator) needs to be directly inside an element with the HTML attribute data-test-id="product-price"
@@ -25,19 +26,21 @@ export default async function SingleProductPage(props) {
   const singleProduct = await getProductById(Number(props.params.productId));
 
   return (
-    <div>
-      <br />
+    <div className={styles.singleProduct}>
       <h1> {singleProduct.name} </h1>
       <Image
         data-test-id="product-image"
+        className={styles.product}
         src={`/images/${singleProduct.name}.jpg`}
         width={100}
         height={100}
         priority={true}
         alt={singleProduct.name}
       />
-      <h3>Product price in €: </h3>
-      <h3 data-test-id="product-price"> {singleProduct.price} </h3>
+      <h3 data-test-id="product-price">
+        {' '}
+        Product price: {singleProduct.price} €{' '}
+      </h3>
       <AddToCartButton
         id={singleProduct.id}
         data-test-id="product-add-to-cart"
