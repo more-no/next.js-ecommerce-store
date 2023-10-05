@@ -123,7 +123,8 @@ export default function CheckoutPage() {
                 {' '}
                 Expiration Date:
                 <input
-                  type="number"
+                  type="month"
+                  min="2023-10"
                   name="userExpirationDate"
                   data-test-id="checkout-expiration-date"
                   required

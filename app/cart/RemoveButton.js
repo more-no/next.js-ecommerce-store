@@ -1,18 +1,16 @@
 'use client';
-import handleRemoveSingleItem from './HandleRemoveItem';
+import styles from './styles.module.scss';
+import { handleButtonClick } from './actions';
 
 export default function RemoveButton({ id }) {
-  const handleButtonClick = async () => {
-    await handleRemoveSingleItem({ id });
-
-    // setTimeout(() => {
-    //   router.reload();
-    // }, 1000);
-  };
-
   return (
     <form>
-      <button onClick={handleButtonClick}>Remove Item</button>
+      <button
+        className={styles.removeButton}
+        formAction={async () => await handleButtonClick(id)}
+      >
+        Remove Item
+      </button>
     </form>
   );
 }

@@ -7,7 +7,7 @@ export function generateMetadata() {
   };
 }
 
-export default function Thankyou() {
+export default function ThankyouPage() {
   return (
     <div>
       <h1>Thank you for your order</h1>

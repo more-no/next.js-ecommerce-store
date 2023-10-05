@@ -15,17 +15,17 @@ import NumberOfItems from './NumberOfItems';
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div>
-        <Link href="/">Home</Link>
+      <div className={styles.elements}>
+        <Link className={styles.links} href="/">Home</Link>
       </div>
       <div className={styles.buttonHeader}>
         <div className={styles.elements}>
-          <Link data-test-id="products-link" href="/">
+          <Link className={styles.links} data-test-id="products-link" href="/">
             Our Products
           </Link>
         </div>
         <div className={styles.elements}>
-          <Link data-test-id="cart-link" href="/cart">
+          <Link className={styles.links} data-test-id="cart-link" href="/cart">
             To my Cart
           </Link>
         </div>

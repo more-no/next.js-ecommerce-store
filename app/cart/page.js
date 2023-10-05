@@ -1,5 +1,5 @@
 import CheckoutButton from './CheckoutButton';
-import DisplayItem from './actions';
+import DisplayItem from './DisplayItem';
 import { getCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 
@@ -25,14 +25,9 @@ export default async function CartPage() {
     : []);
 
   return (
-    <>
-      <h1>This is your Order: </h1>
-      <br />
-      <br />
-      <div>
-        <DisplayItem />
-        <CheckoutButton cart={currentCart} data-test-id="cart-checkout" />
-      </div>
-    </>
+    <div>
+      <DisplayItem />
+      <CheckoutButton cart={currentCart} data-test-id="cart-checkout" />
+    </div>
   );
 }
