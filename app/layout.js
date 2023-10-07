@@ -3,10 +3,6 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import Header from './Header';
 
-// SEO
-// +++++ • Add titles to all pages
-// +++++ • Add meta descriptions to all pages
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {

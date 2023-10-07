@@ -2,21 +2,13 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 import NumberOfItems from './NumberOfItems';
 
-// +++++ ◦ This header needs to appear on all pages
-// +++++ ◦ The header needs to use the HTML <header> element
-
-// +++++   ▪ The header (described below) needs to have a link to the products page with the HTML attribute data-test-id="products-link"
-
-// +++++ • A header with a link to the Cart, showing the number of items in the cart
-// +++++ ◦ The link needs to have an HTML attribute data-test-id="cart-link"
-
-// +++++ ◦ The count needs to be contained in an element with the HTML attribute data-test-id="cart-count"
-
 export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.elements}>
-        <Link className={styles.links} href="/">Home</Link>
+        <Link className={styles.links} href="/">
+          Home
+        </Link>
       </div>
       <div className={styles.buttonHeader}>
         <div className={styles.elements}>

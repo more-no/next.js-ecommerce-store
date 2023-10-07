@@ -2,8 +2,6 @@
 import styles from './styles.module.scss';
 import { useRouter } from 'next/navigation';
 
-// +++++ ◦ Clicking on the checkout button should navigate to the checkout page
-
 export default function CheckoutButton({ cart }) {
   const router = useRouter();
 

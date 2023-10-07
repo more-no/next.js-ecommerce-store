@@ -1,6 +1,3 @@
-// • A Thank You page
-// ◦ The page title should include Thank you for your order
-
 export function generateMetadata() {
   return {
     title: 'Thank you for your order | My E-Commerce App',

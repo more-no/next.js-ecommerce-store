@@ -5,14 +5,6 @@ import { getCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 import RemoveButton from './RemoveButton';
 
-// +++++ ◦ Each product needs to be contained in an element with the HTML attribute data-test-id="cart-product-<product id>"
-// +++++    ▪ Inside the product element:
-// +++++        • the product name needs to be be visible
-// +++++        • the quantity needs to be visible, as the only content inside an element with the HTML attribute data-test-id="cart-product-quantity-<product id>"
-// +++++        • the product subtotal needs to be visible (price × quantity)
-
-// +++++ ◦ The total price (the number without any currency symbol) needs to be directly inside an element with the HTML attribute data-test-id="cart-total"
-
 export default async function DisplayItem() {
   const products = await getProducts();
 

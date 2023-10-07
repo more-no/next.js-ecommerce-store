@@ -2,17 +2,7 @@ import styles from './styles.module.scss';
 import Image from 'next/image';
 import { getProductById } from '../../../database/products';
 import { AddToCartButton } from './AddToCartButton';
-
-// +++++ A page for each single product (when you click on the product it goes to this page) with ability to add a quantity to the cart
-// +++++ ◦ The single product URL needs to contain the id (eg. /products/<product id>)
-// +++++ ◦ The product name needs to be directly inside an h1 element (it should be the only h1)
-// +++++ ◦ The product image needs to be in an img element with the HTML  attribute data-test-id="product-image"
-// +++++ ◦ The product price (without any currency symbol or thousands separator) needs to be directly inside an element with the HTML attribute data-test-id="product-price"
-// +++++ ◦ The quantity input needs to have the HTML attribute data-test-id="product-quantity"
-//     +++++ ▪  an input field here with type=”number”
-//     +++++ ▪  The starting quantity should be 1
-// +++++ ◦ The add to cart button needs to have the HTML attribute data-test-id="product-add-to-cart"
-// +++++ ◦ Negative quantity values should not be possible
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
   const singleProduct = await getProductById(Number(params.productId));
@@ -24,6 +14,10 @@ export async function generateMetadata({ params }) {
 
 export default async function SingleProductPage(props) {
   const singleProduct = await getProductById(Number(props.params.productId));
+
+  if (!singleProduct) {
+    notFound();
+  }
 
   return (
     <div className={styles.singleProduct}>
