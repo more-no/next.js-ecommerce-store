@@ -4,15 +4,21 @@ import { getProductById } from '../../../database/products';
 import { AddToCartButton } from './AddToCartButton';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata({ params }) {
-  const singleProduct = await getProductById(Number(params.productId));
+type Props = {
+  params: {
+    productId: string;
+  };
+};
+
+export async function generateMetadata(props: Props) {
+  const singleProduct = await getProductById(Number(props.params.productId));
 
   return {
     title: singleProduct ? singleProduct.name : '',
   };
 }
 
-export default async function SingleProductPage(props) {
+export default async function SingleProductPage(props: Props) {
   const singleProduct = await getProductById(Number(props.params.productId));
 
   if (!singleProduct) {
@@ -26,8 +32,8 @@ export default async function SingleProductPage(props) {
         data-test-id="product-image"
         className={styles.product}
         src={`/images/${singleProduct.name}.jpg`}
-        width={100}
-        height={100}
+        width={200}
+        height={200}
         priority={true}
         alt={singleProduct.name}
       />
@@ -36,7 +42,7 @@ export default async function SingleProductPage(props) {
         Product price: {singleProduct.price} €{' '}
       </h3>
       <AddToCartButton
-        id={singleProduct.id}
+        productId={singleProduct.id}
         data-test-id="product-add-to-cart"
       />
     </div>

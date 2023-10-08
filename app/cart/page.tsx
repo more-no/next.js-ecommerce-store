@@ -1,5 +1,6 @@
 import CheckoutButton from './CheckoutButton';
 import DisplayItem from './DisplayItem';
+import { getProducts } from '../../database/products';
 import { getCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 
@@ -10,6 +11,8 @@ export function generateMetadata() {
 }
 
 export default async function CartPage() {
+  const products = await getProducts();
+
   const currentCartCookie = getCookie('cart');
 
   const currentCart = await (currentCartCookie
@@ -18,7 +21,7 @@ export default async function CartPage() {
 
   return (
     <div>
-      <DisplayItem />
+      <DisplayItem products={products} cart={currentCart} />
       <CheckoutButton cart={currentCart} data-test-id="cart-checkout" />
     </div>
   );

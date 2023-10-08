@@ -1,9 +1,13 @@
-import styles from './global.scss';
-import { Inter } from 'next/font/google';
-import Link from 'next/link';
+// import styles from './global.scss';
+// import { Inter } from 'next/font/google';
 import Header from './Header';
+import { ReactNode } from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
+
+type Props = {
+  children: ReactNode;
+};
 
 export const metadata = {
   title: {
@@ -13,12 +17,12 @@ export const metadata = {
   description: 'Created with Next.js',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout(props: Props) {
   return (
     <html lang="en">
       <body>
         <Header data-test-id="products-link" />
-        {children}
+        {props.children}
       </body>
     </html>
   );

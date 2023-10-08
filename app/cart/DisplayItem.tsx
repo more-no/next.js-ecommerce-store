@@ -1,19 +1,25 @@
 import styles from './styles.module.scss';
 import Image from 'next/image';
-import { getProducts } from '../../database/products';
-import { getCookie } from '../../utilities/cookies';
-import { parseJson } from '../../utilities/json';
 import RemoveButton from './RemoveButton';
 
-export default async function DisplayItem() {
-  const products = await getProducts();
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  description: string | null;
+};
 
-  const currentCartCookie = getCookie('cart');
+type Cart = {
+  id: number;
+  quantity: number;
+};
 
-  const currentCart = await (currentCartCookie
-    ? parseJson(currentCartCookie)
-    : []);
+type Props = {
+  products: Product[] | [];
+  cart: Cart[] | [];
+};
 
+export default function DisplayItem(props: Props) {
   let totalPrice = 0;
 
   // map through the cart and display the items inside
@@ -21,8 +27,8 @@ export default async function DisplayItem() {
   return (
     <>
       <ul className={styles.cartList}>
-        {products.map((product) => {
-          const itemToInclude = currentCart.find(
+        {props.products.map((product) => {
+          const itemToInclude = props.cart.find(
             (item) => item.id === product.id,
           );
 
@@ -38,13 +44,13 @@ export default async function DisplayItem() {
               >
                 <div>
                   <Image
-                    className={styles.productsImages}
                     src={`/images/${product.name}.jpg`}
                     alt={product.name}
                     width={300}
                     height={300}
                     priority={true}
                   />
+                  <h1>{product.name}</h1>
                   <p
                     className={styles.cartText}
                     data-test-id="cart-product-quantity-<product id>"

@@ -2,10 +2,19 @@
 import styles from './styles.module.scss';
 import { useRouter } from 'next/navigation';
 
-export default function CheckoutButton({ cart }) {
+type Cart = {
+  id: number;
+  quantity: number;
+};
+
+type Props = {
+  cart: Cart[] | [];
+};
+
+export default function CheckoutButton(props: Props) {
   const router = useRouter();
 
-  if (cart.length > 0) {
+  if (props.cart.length) {
     return (
       <button
         className={styles.checkoutButton}

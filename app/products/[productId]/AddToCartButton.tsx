@@ -2,15 +2,12 @@
 import { useState } from 'react';
 import { handleCart } from './actions';
 
-export function AddToCartButton({ id }) {
+type Props = {
+  productId: number;
+};
+
+export function AddToCartButton(props: Props) {
   const [quantity, setQuantity] = useState(0);
-
-  console.log(id);
-
-  const chosenProduct = {
-    id: id,
-    quantity: quantity,
-  };
 
   return (
     <form>
@@ -23,10 +20,11 @@ export function AddToCartButton({ id }) {
         type="number"
         min="1"
       />
-      <button formAction={async () => await handleCart(chosenProduct)}>
+      <button
+        formAction={async () => await handleCart(props.productId, quantity)}
+      >
         Add to Cart
       </button>
-      <div> Quantity: {chosenProduct.quantity}</div>
     </form>
   );
 }
