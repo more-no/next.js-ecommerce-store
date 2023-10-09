@@ -2,6 +2,7 @@
 import { setCookie } from '../../../utilities/cookies';
 import { getCookie } from '../../../utilities/cookies';
 import { parseJson } from '../../../utilities/json';
+import { handleQuantity } from './HandleQuantity';
 
 type Item = {
   id: number;
@@ -30,10 +31,11 @@ export async function handleCart(productId: number, quantityId: number) {
     // If the product already exists in the cart, update its quantity
     newCart = currentCart.map((item: Item, index: Index) => {
       if (index === itemToUpdateIndex) {
-        let parsedItemQuantity = parseInt(item.quantity);
-        const parsedChosenProductQuantity = quantityId;
-        const updatedQuantity = (parsedItemQuantity +=
-          parsedChosenProductQuantity);
+        const parsedItemQuantity = parseInt(item.quantity);
+
+        const updatedQuantity = handleQuantity(parsedItemQuantity, quantityId);
+        console.log(updatedQuantity);
+
         // update its quantity
         return {
           ...item,
@@ -53,7 +55,6 @@ export async function handleCart(productId: number, quantityId: number) {
       },
     ];
   }
-
   // 4. we override the cookie
   await setCookie(JSON.stringify(newCart));
 }

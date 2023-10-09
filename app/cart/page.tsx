@@ -6,7 +6,7 @@ import { parseJson } from '../../utilities/json';
 
 export function generateMetadata() {
   return {
-    title: 'Your Cart | My E-Commerce App',
+    title: 'Your Cart',
   };
 }
 

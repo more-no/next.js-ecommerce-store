@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import Image from 'next/image';
 import RemoveButton from './RemoveButton';
+import { ChangeQuantityButton } from './ChangeQuantityButton';
 
 type Product = {
   id: number;
@@ -19,6 +20,14 @@ type Props = {
   cart: Cart[] | [];
 };
 
+export function calculateSubTotal(price: number, quantity: number) {
+  return price * quantity;
+}
+
+export function calculateTotal(totalPrice: number, subTotal: number) {
+  return (totalPrice += subTotal);
+}
+
 export default function DisplayItem(props: Props) {
   let totalPrice = 0;
 
@@ -33,8 +42,11 @@ export default function DisplayItem(props: Props) {
           );
 
           if (itemToInclude) {
-            const subTotal = product.price * itemToInclude.quantity;
-            totalPrice += subTotal;
+            const subTotal = calculateSubTotal(
+              product.price,
+              itemToInclude.quantity,
+            );
+            totalPrice = calculateTotal(totalPrice, subTotal);
 
             // If the product exists in the cart display it
             return (
@@ -59,6 +71,7 @@ export default function DisplayItem(props: Props) {
                     Quantity: {itemToInclude.quantity}{' '}
                   </p>
                   <p className={styles.cartText}> Subtotal: {subTotal} €</p>
+                  <ChangeQuantityButton productId={product.id} />
                   <RemoveButton
                     id={itemToInclude.id}
                     data-test-id="cart-product-remove-<product id>"
