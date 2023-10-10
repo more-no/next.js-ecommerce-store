@@ -1,4 +1,5 @@
 import DeleteCookie from './DeleteCookie';
+import styles from './styles.module.scss';
 
 export function generateMetadata() {
   return {
@@ -12,8 +13,8 @@ export default function CheckoutPage() {
       <legend>Shipping & Payment Information</legend>
       <br />
       <form>
-        <ul>
-          <li className="formElement">
+        <ul className={styles.formElement}>
+          <li>
             <label>
               {' '}
               First Name:
@@ -70,7 +71,8 @@ export default function CheckoutPage() {
               {' '}
               Postal Code:
               <input
-                type="number"
+                type="tel"
+                maxLength="6"
                 name="userPostalCode"
                 data-test-id="checkout-postal-code"
                 required
@@ -93,7 +95,11 @@ export default function CheckoutPage() {
               {' '}
               Credit Card:
               <input
-                type="number"
+                type="tel"
+                placeholder="xxxx-xxxx-xxxx-xxxx"
+                inputMode="numeric"
+                maxLength="16"
+                pattern="[0-9\s]{13,19}"
                 name="userCreditCard"
                 data-test-id="checkout-credit-card"
                 required
@@ -105,8 +111,9 @@ export default function CheckoutPage() {
               {' '}
               Expiration Date:
               <input
-                type="month"
-                min="2023-10"
+                type="tel"
+                placeholder="MM/YY"
+                maxLength="4"
                 name="userExpirationDate"
                 data-test-id="checkout-expiration-date"
                 required
@@ -118,7 +125,9 @@ export default function CheckoutPage() {
               {' '}
               Security Code:
               <input
-                type="number"
+                type="tel"
+                maxLength="3"
+                placeholder="CVC"
                 name="userSecurityCode"
                 data-test-id="checkout-security-code"
                 required

@@ -28,7 +28,6 @@ export default async function HomePage() {
                   priority={true}
                 />
               </Link>
-              <div>{product.description}</div>
               <br />
             </div>
           );

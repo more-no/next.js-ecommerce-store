@@ -56,6 +56,7 @@ export default function DisplayItem(props: Props) {
               >
                 <div>
                   <Image
+                    className={styles.productsImages}
                     src={`/images/${product.name}.jpg`}
                     alt={product.name}
                     width={300}
