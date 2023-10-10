@@ -1,4 +1,4 @@
-'use server';
+import 'server-only';
 import { headers } from 'next/headers';
 import postgres, { Sql } from 'postgres';
 import { setEnvironmentVariables } from '../utilities/config.mjs';
@@ -14,6 +14,7 @@ declare module globalThis {
 function connectOneTimeToDatabase() {
   if (!('postgresSqlClient' in globalThis)) {
     globalThis.postgresSqlClient = postgres({
+      ssl: Boolean(process.env.POSTGRES_URL),
       transform: {
         ...postgres.camel,
         undefined: null,
@@ -42,4 +43,5 @@ function connectOneTimeToDatabase() {
   }) as typeof globalThis.postgresSqlClient;
 }
 
+// Connect to PostgreSQL
 export const sql = connectOneTimeToDatabase();
