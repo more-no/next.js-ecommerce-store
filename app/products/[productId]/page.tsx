@@ -27,7 +27,7 @@ export default async function SingleProductPage(props: Props) {
 
   return (
     <div className={styles.singleProduct}>
-      <h1> {singleProduct.name} </h1> <h4>{singleProduct.id}</h4>
+      <h1> {singleProduct.name} </h1>
       <Image
         data-test-id="product-image"
         className={styles.product}
@@ -37,10 +37,8 @@ export default async function SingleProductPage(props: Props) {
         priority={true}
         alt={singleProduct.name}
       />
-      <h3 data-test-id="product-price">
-        {' '}
-        Product price: {singleProduct.price} €{' '}
-      </h3>
+      <h3 data-test-id="product-price">{singleProduct.price}</h3>
+      <h3>€</h3>
       <AddToCartButton
         productId={singleProduct.id}
         data-test-id="product-add-to-cart"

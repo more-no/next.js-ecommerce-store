@@ -13,12 +13,12 @@ export function AddToCartButton(props: Props) {
     <form>
       <input
         data-test-id="product-quantity"
-        value={quantity}
+        placeholder="1"
+        type="number"
+        min="1"
         onChange={(event) => {
           setQuantity(parseInt(event.currentTarget.value));
         }}
-        type="number"
-        min="1"
       />
       <button
         formAction={async () => await handleCart(props.productId, quantity)}
