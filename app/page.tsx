@@ -13,7 +13,7 @@ export default async function HomePage() {
         {products.map((product) => {
           return (
             <div key={`product-div-${product.id}`}>
-              <a
+              <Link
                 data-test-id={`"product-${product.id}"`}
                 href={`/products/${product.id}`}
               >
@@ -26,7 +26,7 @@ export default async function HomePage() {
                   height={300}
                   priority={true}
                 />
-              </a>
+              </Link>
               <br />
             </div>
           );
