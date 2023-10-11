@@ -14,7 +14,7 @@ export default async function HomePage() {
           return (
             <div key={`product-div-${product.id}`}>
               <Link
-                data-test-id={`product-${product.id}`}
+                data-test-id={`"product-${product.id}"`}
                 href={`/products/${product.id}`}
               >
                 <h1>{product.name}</h1>
