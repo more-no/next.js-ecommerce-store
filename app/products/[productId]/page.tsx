@@ -27,7 +27,7 @@ export default async function SingleProductPage(props: Props) {
 
   return (
     <div className={styles.singleProduct}>
-      <h1> {singleProduct.name} </h1>
+      <h1> {singleProduct.name} </h1> <h4>{singleProduct.id}</h4>
       <Image
         data-test-id="product-image"
         className={styles.product}

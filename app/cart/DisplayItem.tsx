@@ -51,7 +51,7 @@ export default function DisplayItem(props: Props) {
             // If the product exists in the cart display it
             return (
               <li
-                data-test-id="cart-product-<product id>"
+                data-test-id={`cart-product-${product.id}`}
                 key={`product-div-${product.id}`}
               >
                 <div>
@@ -66,7 +66,7 @@ export default function DisplayItem(props: Props) {
                   <h1>{product.name}</h1>
                   <p
                     className={styles.cartText}
-                    data-test-id="cart-product-quantity-<product id>"
+                    data-test-id={`cart-product-quantity-${product.id}`}
                   >
                     {' '}
                     Quantity: {itemToInclude.quantity}{' '}
@@ -75,7 +75,7 @@ export default function DisplayItem(props: Props) {
                   <ChangeQuantityButton productId={product.id} />
                   <RemoveButton
                     id={itemToInclude.id}
-                    data-test-id="cart-product-remove-<product id>"
+                    data-test-id={`cart-product-remove-${product.id}`}
                   />
                 </div>
               </li>

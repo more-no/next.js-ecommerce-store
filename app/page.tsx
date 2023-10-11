@@ -13,12 +13,11 @@ export default async function HomePage() {
         {products.map((product) => {
           return (
             <div key={`product-div-${product.id}`}>
-              <h1>{product.name}</h1>
               <Link
-                data-test-id="product-<product id>"
+                data-test-id={`product-${product.id}`}
                 href={`/products/${product.id}`}
-                rel="preload"
               >
+                <h1>{product.name}</h1>
                 <Image
                   className={styles.productsImages}
                   src={`/images/${product.name}.jpg`}
