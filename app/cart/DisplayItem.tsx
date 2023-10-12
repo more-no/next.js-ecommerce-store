@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Image from 'next/image';
+// import Image from 'next/image';
 import RemoveButton from './RemoveButton';
 import { ChangeQuantityButton } from './ChangeQuantityButton';
 
@@ -55,13 +55,13 @@ export default function DisplayItem(props: Props) {
                 key={`product-div-${product.id}`}
               >
                 <div>
-                  <Image
+                  <img
                     className={styles.productsImages}
                     src={`/images/${product.name}.jpg`}
                     alt={product.name}
                     width={300}
                     height={300}
-                    priority={true}
+                    // priority={true}
                   />
                   <h1>{product.name}</h1>
                   <p

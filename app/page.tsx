@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../database/products';
 
@@ -18,13 +18,13 @@ export default async function HomePage() {
                 href={`/products/${product.id}`}
               >
                 <h1>{product.name}</h1>
-                <Image
+                <img
                   className={styles.productsImages}
                   src={`/images/${product.name}.jpg`}
                   alt={product.name}
                   width={300}
                   height={300}
-                  priority={true}
+                  // priority={true}
                 />
               </Link>
               <br />

@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { getProductById } from '../../../database/products';
 import { AddToCartButton } from './AddToCartButton';
 import { notFound } from 'next/navigation';
@@ -28,13 +28,13 @@ export default async function SingleProductPage(props: Props) {
   return (
     <div className={styles.singleProduct}>
       <h1> {singleProduct.name} </h1>
-      <Image
+      <img
         data-test-id="product-image"
         className={styles.product}
         src={`/images/${singleProduct.name}.jpg`}
         width={200}
         height={200}
-        priority={true}
+        // priority={true}
         alt={singleProduct.name}
       />
       <h3 data-test-id="product-price">{singleProduct.price}</h3>
