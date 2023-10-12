@@ -2,7 +2,7 @@
 import { setCookie } from '../../../utilities/cookies';
 import { getCookie } from '../../../utilities/cookies';
 import { parseJson } from '../../../utilities/json';
-import { handleQuantity } from './HandleQuantity';
+import { handleQuantity } from './handleQuantity';
 
 type Item = {
   id: number;

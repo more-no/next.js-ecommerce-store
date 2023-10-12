@@ -37,7 +37,8 @@ export default function Header() {
           </Link>
         </div>
         <div className={styles.itemsCount}>
-          <span> Your Items: {count}</span>;
+          <span>Your Items: </span>
+          <span data-test-id="cart-count">{count}</span>;
         </div>
       </div>
     </header>
