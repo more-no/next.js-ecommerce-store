@@ -21,6 +21,7 @@ export function AddToCartButton(props: Props) {
         }}
       />
       <button
+        data-test-id="product-add-to-cart"
         formAction={async () => await handleCart(props.productId, quantity)}
       >
         Add to Cart
