@@ -1,8 +1,23 @@
 import styles from './styles.module.scss';
 import Link from 'next/link';
-import NumberOfItems from './NumberOfItems';
+import { getCookie } from '../utilities/cookies';
+import { parseJson } from '../utilities/json';
 
 export default function Header() {
+  let count = 0;
+
+  const currentCartCookie = getCookie('cart');
+
+  const currentCart = currentCartCookie ? parseJson(currentCartCookie) : [];
+
+  console.log(currentCart);
+
+  currentCart.forEach((item) => {
+    count += item.quantity;
+  });
+
+  console.log(count);
+
   return (
     <header className={styles.header}>
       <div className={styles.elements}>
@@ -22,9 +37,7 @@ export default function Header() {
           </Link>
         </div>
         <div className={styles.itemsCount}>
-          <NumberOfItems data-test-id="cart-count">
-            {NumberOfItems}
-          </NumberOfItems>
+          <span> Your Items: {count}</span>;
         </div>
       </div>
     </header>

@@ -3,7 +3,7 @@ import { getCookie } from '../../utilities/cookies';
 import { setCookie } from '../../utilities/cookies';
 import { parseJson } from '../../utilities/json';
 
-type Cart = {
+type CartItem = {
   id: number;
   quantity: number;
 };
@@ -22,7 +22,7 @@ export async function handleButtonClick(id: number) {
 
   const currentCart = currentCartCookie ? parseJson(currentCartCookie) : [];
 
-  const updatedCart = currentCart.filter((item: Cart) => item.id !== id);
+  const updatedCart = currentCart.filter((item: CartItem) => item.id !== id);
 
   await setCookie(JSON.stringify(updatedCart));
 }
