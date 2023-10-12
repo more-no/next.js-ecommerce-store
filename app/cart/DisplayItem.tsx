@@ -71,7 +71,8 @@ export default function DisplayItem(props: Props) {
                     {' '}
                     Quantity: {itemToInclude.quantity}{' '}
                   </p>
-                  <p className={styles.cartText}> Subtotal: {subTotal} €</p>
+                  <p className={styles.cartText}>SubTotal in €:</p>
+                  <p className={styles.cartText}>{subTotal}</p>
                   <ChangeQuantityButton productId={product.id} />
                   <RemoveButton
                     id={itemToInclude.id}
