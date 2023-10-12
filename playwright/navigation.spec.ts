@@ -27,7 +27,8 @@ test('Add to cart test', async ({ page }) => {
   await page
     .locator('li')
     .filter({
-      hasText: 'Esmeralda Quantity: 1 Subtotal: 55 €Change QuantityRemove Item',
+      hasText:
+        'Esmeralda Quantity: 1 SubTotal in €:55Change QuantityRemove Item',
     })
     .getByTestId('product-quantity')
     .fill('5');
