@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals';
-import { handleQuantity } from '../../app/products/[productId]/handleQuantity';
+import { handleQuantity } from '../../app/products/[productId]/HandleQuantity';
 
 //  JEST Unit: Test function for updating quantity in item of cookie
 //  (eg. adding an item to the cart that already exists)
