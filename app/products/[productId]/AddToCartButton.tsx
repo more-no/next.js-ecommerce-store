@@ -7,13 +7,13 @@ type Props = {
 };
 
 export function AddToCartButton(props: Props) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <form>
       <input
         data-test-id="product-quantity"
-        placeholder="1"
+        value={quantity}
         type="number"
         min="1"
         onChange={(event) => {
