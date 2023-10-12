@@ -54,34 +54,32 @@ export default function DisplayItem(props: Props) {
                 data-test-id={`cart-product-${product.id}`}
                 key={`product-div-${product.id}`}
               >
+                <img
+                  className={styles.productsImages}
+                  src={`/images/${product.name}.jpg`}
+                  alt={product.name}
+                  width={300}
+                  height={300}
+                  // priority={true}
+                />
+                <h1>{product.name}</h1>
+                <p
+                  className={styles.cartText}
+                  data-test-id={`cart-product-quantity-${product.id}`}
+                >
+                  {' '}
+                  Quantity: {itemToInclude.quantity}{' '}
+                </p>
                 <div>
-                  <img
-                    className={styles.productsImages}
-                    src={`/images/${product.name}.jpg`}
-                    alt={product.name}
-                    width={300}
-                    height={300}
-                    // priority={true}
+                  <p className={styles.cartText}>SubTotal in €:</p>
+                  <p className={styles.cartText}>{subTotal}</p>
+                </div>
+                <div>
+                  <ChangeQuantityButton productId={product.id} />
+                  <RemoveButton
+                    id={itemToInclude.id}
+                    data-test-id={`cart-product-remove-${product.id}`}
                   />
-                  <h1>{product.name}</h1>
-                  <p
-                    className={styles.cartText}
-                    data-test-id={`cart-product-quantity-${product.id}`}
-                  >
-                    {' '}
-                    Quantity: {itemToInclude.quantity}{' '}
-                  </p>
-                  <div>
-                    <p className={styles.cartText}>SubTotal in €:</p>
-                    <p className={styles.cartText}>{subTotal}</p>
-                  </div>
-                  <div>
-                    <ChangeQuantityButton productId={product.id} />
-                    <RemoveButton
-                      id={itemToInclude.id}
-                      data-test-id={`cart-product-remove-${product.id}`}
-                    />
-                  </div>
                 </div>
               </li>
             );
