@@ -63,14 +63,14 @@ export default function DisplayItem(props: Props) {
                   // priority={true}
                 />
                 <h1>{product.name}</h1>
+                <p className={styles.cartText}>Quantity: :</p>
                 <p
                   className={styles.cartText}
                   data-test-id={`cart-product-quantity-${product.id}`}
                 >
-                  {' '}
-                  Quantity: {itemToInclude.quantity}{' '}
+                  {itemToInclude.quantity}
                 </p>
-                {/* <p className={styles.cartText}>SubTotal in €:</p> */}
+                <p className={styles.cartText}>SubTotal in €: </p>
                 <p className={styles.cartText}>{subtotal}</p>
                 <div>
                   <ChangeQuantityButton productId={product.id} />
@@ -85,9 +85,9 @@ export default function DisplayItem(props: Props) {
           return null;
         })}
       </ul>
+      <p className={styles.total}>Total price in €: </p>
       <h3 className={styles.total} data-test-id="cart-total">
-        {' '}
-        Total price: {totalPrice} €{' '}
+        {totalPrice}
       </h3>
     </>
   );
