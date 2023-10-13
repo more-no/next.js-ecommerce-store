@@ -11,6 +11,7 @@ export default function RemoveButton(props: Props) {
     <form>
       <button
         className={styles.removeButton}
+        data-test-id={`cart-product-remove-${props.id}`}
         formAction={async () => await handleButtonClick(props.id)}
       >
         Remove Item

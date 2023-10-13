@@ -74,10 +74,8 @@ export default function DisplayItem(props: Props) {
                 <p className={styles.cartText}>{subtotal}</p>
                 <div>
                   <ChangeQuantityButton productId={product.id} />
-                  <RemoveButton
-                    id={itemToInclude.id}
-                    data-test-id={`cart-product-remove-${product.id}`}
-                  />
+                  <br />
+                  <RemoveButton id={itemToInclude.id} />
                 </div>
               </li>
             );
