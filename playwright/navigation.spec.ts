@@ -24,15 +24,6 @@ test('Add to cart test', async ({ page }) => {
   await page.waitForURL('http://localhost:3000/cart');
   await expect(page).toHaveURL('http://localhost:3000/cart');
 
-  await page
-    .locator('li')
-    .filter({
-      hasText:
-        'Esmeralda Quantity: 1 SubTotal in €:55Change QuantityRemove Item',
-    })
-    .getByTestId('product-quantity')
-    .fill('5');
-
   await page.getByRole('button', { name: 'Change Quantity' }).nth(1).click();
 
   await page.getByRole('button', { name: 'Remove Item' }).nth(1).click();

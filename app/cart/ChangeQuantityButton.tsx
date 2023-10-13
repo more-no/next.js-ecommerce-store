@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function ChangeQuantityButton(props: Props) {
-  const [newQuantity, setNewQuantity] = useState(0);
+  const [newQuantity, setNewQuantity] = useState(1);
 
   return (
     <form>

@@ -38,7 +38,6 @@ export default async function SingleProductPage(props: Props) {
         alt={singleProduct.name}
       />
       <h3 data-test-id="product-price">{singleProduct.price}</h3>
-      <h3>€</h3>
       <AddToCartButton productId={singleProduct.id} />
     </div>
   );

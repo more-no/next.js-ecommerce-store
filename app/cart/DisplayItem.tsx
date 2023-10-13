@@ -42,11 +42,11 @@ export default function DisplayItem(props: Props) {
           );
 
           if (itemToInclude) {
-            const subTotal = calculateSubTotal(
+            const subtotal = calculateSubTotal(
               product.price,
               itemToInclude.quantity,
             );
-            totalPrice = calculateTotal(totalPrice, subTotal);
+            totalPrice = calculateTotal(totalPrice, subtotal);
 
             // If the product exists in the cart display it
             return (
@@ -70,10 +70,8 @@ export default function DisplayItem(props: Props) {
                   {' '}
                   Quantity: {itemToInclude.quantity}{' '}
                 </p>
-                <div>
-                  <p className={styles.cartText}>SubTotal in €:</p>
-                  <p className={styles.cartText}>{subTotal}</p>
-                </div>
+                {/* <p className={styles.cartText}>SubTotal in €:</p> */}
+                <p className={styles.cartText}>{subtotal}</p>
                 <div>
                   <ChangeQuantityButton productId={product.id} />
                   <RemoveButton
