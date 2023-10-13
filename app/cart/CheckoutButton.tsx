@@ -17,6 +17,7 @@ export default function CheckoutButton(props: Props) {
   if (props.cart.length) {
     return (
       <button
+        data-test-id="cart-checkout"
         className={styles.checkoutButton}
         type="button"
         onClick={() => router.push('/checkout')}
@@ -27,6 +28,7 @@ export default function CheckoutButton(props: Props) {
   } else {
     return (
       <button
+        data-test-id="cart-checkout"
         className={styles.checkoutButton}
         type="button"
         disabled

@@ -22,7 +22,7 @@ export default async function CartPage() {
   return (
     <div>
       <DisplayItem products={products} cart={currentCart} />
-      <CheckoutButton cart={currentCart} data-test-id="cart-checkout" />
+      <CheckoutButton cart={currentCart} />
     </div>
   );
 }
