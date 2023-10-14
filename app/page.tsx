@@ -12,8 +12,12 @@ export default async function HomePage() {
       <div className={styles.productsContainer}>
         {products.map((product) => {
           return (
-            <div key={`product-div-${product.id}`}>
+            <div
+              className={styles.productCard}
+              key={`product-div-${product.id}`}
+            >
               <Link
+                className={styles.links}
                 data-test-id={`product-${product.id}`}
                 href={`/products/${product.id}`}
               >
@@ -22,8 +26,8 @@ export default async function HomePage() {
                   className={styles.productsImages}
                   src={`/images/${product.name}.jpg`}
                   alt={product.name}
-                  width={300}
-                  height={300}
+                  width={600}
+                  height={600}
                   // priority={true}
                 />
               </Link>

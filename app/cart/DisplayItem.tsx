@@ -1,5 +1,3 @@
-import styles from './styles.module.scss';
-// import Image from 'next/image';
 import RemoveButton from './RemoveButton';
 import { ChangeQuantityButton } from './ChangeQuantityButton';
 
@@ -35,7 +33,7 @@ export default function DisplayItem(props: Props) {
   // comparing the ID of each product with the IDs in the cart
   return (
     <>
-      <ul className={styles.cartList}>
+      <ul>
         {props.products.map((product) => {
           const itemToInclude = props.cart.find(
             (item) => item.id === product.id,
@@ -55,23 +53,18 @@ export default function DisplayItem(props: Props) {
                 key={`product-div-${product.id}`}
               >
                 <img
-                  className={styles.productsImages}
                   src={`/images/${product.name}.jpg`}
                   alt={product.name}
                   width={300}
                   height={300}
-                  // priority={true}
                 />
                 <h1>{product.name}</h1>
-                <p className={styles.cartText}>Quantity: :</p>
-                <p
-                  className={styles.cartText}
-                  data-test-id={`cart-product-quantity-${product.id}`}
-                >
+                <p>Quantity: :</p>
+                <p data-test-id={`cart-product-quantity-${product.id}`}>
                   {itemToInclude.quantity}
                 </p>
-                <p className={styles.cartText}>SubTotal in €: </p>
-                <p className={styles.cartText}>{subtotal}</p>
+                <p>SubTotal in €: </p>
+                <p>{subtotal}</p>
                 <div>
                   <ChangeQuantityButton productId={product.id} />
                   <br />
@@ -83,10 +76,8 @@ export default function DisplayItem(props: Props) {
           return null;
         })}
       </ul>
-      <p className={styles.total}>Total price in €: </p>
-      <h3 className={styles.total} data-test-id="cart-total">
-        {totalPrice}
-      </h3>
+      <p> Total price in €: </p>
+      <h3 data-test-id="cart-total">{totalPrice}</h3>
     </>
   );
 }

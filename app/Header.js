@@ -22,7 +22,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.elements}>
         <Link className={styles.links} href="/">
-          Home
+          Logo
         </Link>
       </div>
       <div className={styles.buttonHeader}>
@@ -33,7 +33,7 @@ export default function Header() {
         </div>
         <div className={styles.elements}>
           <Link className={styles.links} data-test-id="cart-link" href="/cart">
-            To my Cart
+            To Your Cart
           </Link>
         </div>
         <div className={styles.itemsCount}>

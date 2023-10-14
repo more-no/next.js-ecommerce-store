@@ -1,5 +1,5 @@
 'use client';
-import styles from './styles.module.scss';
+// import styles from './styles.module.scss';
 import { handleButtonClick } from './actions';
 
 type Props = {
@@ -10,7 +10,6 @@ export default function RemoveButton(props: Props) {
   return (
     <form>
       <button
-        className={styles.removeButton}
         data-test-id={`cart-product-remove-${props.id}`}
         formAction={async () => await handleButtonClick(props.id)}
       >

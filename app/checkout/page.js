@@ -1,5 +1,4 @@
 import DeleteCookie from './DeleteCookie';
-import styles from './styles.module.scss';
 
 export function generateMetadata() {
   return {
@@ -13,7 +12,7 @@ export default function CheckoutPage() {
       <legend>Shipping & Payment Information</legend>
       <br />
       <form>
-        <ul className={styles.formElement}>
+        <ul>
           <li>
             <label>
               {' '}
