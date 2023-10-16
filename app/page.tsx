@@ -26,8 +26,8 @@ export default async function HomePage() {
                   className={styles.productsImages}
                   src={`/images/${product.name}.jpg`}
                   alt={product.name}
-                  width={600}
-                  height={600}
+                  width={450}
+                  height={450}
                   // priority={true}
                 />
               </Link>

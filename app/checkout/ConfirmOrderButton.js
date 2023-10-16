@@ -1,7 +1,7 @@
 'use client';
 import { deleteCookie } from './actions';
 
-export default function DeleteCookie() {
+export default function ConfirmOrderButton() {
   return (
     <button
       data-test-id="checkout-confirm-order"

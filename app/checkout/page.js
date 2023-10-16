@@ -1,4 +1,4 @@
-import DeleteCookie from './DeleteCookie';
+import ConfirmOrderButton from './ConfirmOrderButton';
 
 export function generateMetadata() {
   return {
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
             </label>
           </li>
         </ul>
-        <DeleteCookie />
+        <ConfirmOrderButton />
       </form>
     </fieldset>
   );

@@ -20,10 +20,12 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.elements}>
-        <Link className={styles.links} href="/">
-          Logo
-        </Link>
+      <div className={styles.buttonHeader}>
+        <div className={styles.elements}>
+          <Link className={styles.links} href="/">
+            Logo
+          </Link>
+        </div>
       </div>
       <div className={styles.buttonHeader}>
         <div className={styles.elements}>

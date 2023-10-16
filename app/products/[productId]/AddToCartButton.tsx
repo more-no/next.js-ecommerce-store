@@ -1,4 +1,5 @@
 'use client';
+import styles from './styles.module.scss';
 import { useState } from 'react';
 import { handleCart } from './actions';
 
@@ -12,6 +13,7 @@ export function AddToCartButton(props: Props) {
   return (
     <form>
       <input
+        className={styles.elements}
         data-test-id="product-quantity"
         value={quantity}
         type="number"
@@ -21,6 +23,7 @@ export function AddToCartButton(props: Props) {
         }}
       />
       <button
+        className={styles.buttonHeader}
         data-test-id="product-add-to-cart"
         formAction={async () => await handleCart(props.productId, quantity)}
       >
