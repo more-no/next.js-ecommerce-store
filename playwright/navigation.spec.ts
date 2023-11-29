@@ -59,10 +59,10 @@ test('Checkout flow test', async ({ page }) => {
   await page.getByTestId('checkout-email').fill('luca.rossi@gmail.com');
   await page.getByTestId('checkout-address').fill('Via Roma 45');
   await page.getByTestId('checkout-city').fill('Roma');
-  await page.getByTestId('checkout-postal-code').fill('10190');
+  await page.getByTestId('checkout-postal-code').fill('1019');
   await page.getByTestId('checkout-country').fill('Italy');
   await page.getByTestId('checkout-credit-card').fill('1111222233334444');
-  await page.getByTestId('checkout-expiration-date').fill('0325');
+  await page.getByTestId('checkout-expiration-date').fill('03/25');
   await page.getByTestId('checkout-security-code').fill('352');
 
   await page.getByTestId('checkout-confirm-order').click();
