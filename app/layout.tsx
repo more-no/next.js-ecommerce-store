@@ -1,9 +1,6 @@
-// import styles from './global.scss';
-// import { Inter } from 'next/font/google';
 import Header from './Header';
 import { ReactNode } from 'react';
-
-// const inter = Inter({ subsets: ['latin'] });
+import './globals.css';
 
 type Props = {
   children: ReactNode;
@@ -19,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout(props: Props) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="garden">
       <body>
         <Header data-test-id="products-link" />
         {props.children}

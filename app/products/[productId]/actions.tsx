@@ -34,7 +34,6 @@ export async function handleCart(productId: number, quantityId: number) {
         const parsedItemQuantity = parseInt(item.quantity);
 
         const updatedQuantity = handleQuantity(parsedItemQuantity, quantityId);
-        console.log(updatedQuantity);
 
         // update its quantity
         return {

@@ -55,18 +55,28 @@ const cakes = [
 export async function up(sql: Sql) {
   for (const cake of cakes) {
     await sql`
-      INSERT INTO cakes
-        (name, price, description)
+      INSERT INTO
+        cakes (
+          NAME,
+          price,
+          description
+        )
       VALUES
-        (${cake.name}, ${cake.price}, ${cake.description})
-  `;
+        (
+          ${cake.name},
+          ${cake.price},
+          ${cake.description}
+        )
+    `;
   }
 }
 
 export async function down(sql: Sql) {
   for (const cake of cakes) {
     await sql`
-      DELETE FROM cakes WHERE id = ${cake.id};
-   `;
+      DELETE FROM cakes
+      WHERE
+        id = ${cake.id};
+    `;
   }
 }

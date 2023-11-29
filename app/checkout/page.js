@@ -8,16 +8,17 @@ export function generateMetadata() {
 
 export default function CheckoutPage() {
   return (
-    <fieldset>
-      <legend>Shipping & Payment Information</legend>
-      <br />
-      <form>
+    <form>
+      <fieldset>
+        <legend>Shipping & Payment Information</legend>
+        <br />
         <ul>
           <li>
             <label>
               {' '}
               First Name:
               <input
+                pattern="[A-Za-z]+"
                 name="userFirstName"
                 data-test-id="checkout-first-name"
                 required
@@ -29,6 +30,7 @@ export default function CheckoutPage() {
               {' '}
               Last Name:
               <input
+                pattern="[A-Za-z]+"
                 name="userLastName"
                 data-test-id="checkout-last-name"
                 required
@@ -62,7 +64,12 @@ export default function CheckoutPage() {
             <label>
               {' '}
               City:
-              <input name="userCity" data-test-id="checkout-city" required />
+              <input
+                pattern="[A-Za-z]+"
+                name="userCity"
+                data-test-id="checkout-city"
+                required
+              />
             </label>
           </li>
           <li className="formElement">
@@ -70,8 +77,9 @@ export default function CheckoutPage() {
               {' '}
               Postal Code:
               <input
-                type="tel"
-                maxLength="6"
+                placeholder="xxxx"
+                pattern="[0-9]+"
+                maxLength="4"
                 name="userPostalCode"
                 data-test-id="checkout-postal-code"
                 required
@@ -83,6 +91,7 @@ export default function CheckoutPage() {
               {' '}
               Country:
               <input
+                pattern="[A-Za-z]+"
                 name="userCountry"
                 data-test-id="checkout-country"
                 required
@@ -94,9 +103,7 @@ export default function CheckoutPage() {
               {' '}
               Credit Card:
               <input
-                type="tel"
                 placeholder="xxxx-xxxx-xxxx-xxxx"
-                inputMode="numeric"
                 maxLength="16"
                 pattern="[0-9\s]{13,19}"
                 name="userCreditCard"
@@ -110,10 +117,11 @@ export default function CheckoutPage() {
               {' '}
               Expiration Date:
               <input
-                type="tel"
+                pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
                 placeholder="MM/YY"
-                maxLength="4"
+                maxLength="5"
                 name="userExpirationDate"
+                autoComplete="cc-exp"
                 data-test-id="checkout-expiration-date"
                 required
               />
@@ -126,6 +134,7 @@ export default function CheckoutPage() {
               <input
                 type="tel"
                 maxLength="3"
+                pattern="[0-9]+"
                 placeholder="CVC"
                 name="userSecurityCode"
                 data-test-id="checkout-security-code"
@@ -135,7 +144,7 @@ export default function CheckoutPage() {
           </li>
         </ul>
         <ConfirmOrderButton />
-      </form>
-    </fieldset>
+      </fieldset>
+    </form>
   );
 }

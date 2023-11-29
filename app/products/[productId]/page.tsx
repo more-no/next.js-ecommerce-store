@@ -24,18 +24,25 @@ export default async function SingleProductPage(props: Props) {
   }
 
   return (
-    <div>
-      <h1> {singleProduct.name} </h1>
-      <img
-        data-test-id="product-image"
-        src={`/images/${singleProduct.name}.jpg`}
-        width={200}
-        height={200}
-        alt={singleProduct.name}
-      />
-      <h4>{singleProduct.description}</h4>
-      <h3 data-test-id="product-price">{singleProduct.price}</h3>
-      <AddToCartButton productId={singleProduct.id} />
+    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div>
+        <div className="card-body">
+          <img
+            data-test-id="product-image"
+            src={`/images/${singleProduct.name}.jpg`}
+            width={200}
+            height={200}
+            alt={singleProduct.name}
+          />
+          <h1 className="card-title"> {singleProduct.name} </h1>
+          <p>{singleProduct.description}</p>
+          <p>Price in €: </p>{' '}
+          <div className="card-actions justify-start">
+            <h3 data-test-id="product-price">{singleProduct.price}</h3>
+            <AddToCartButton productId={singleProduct.id} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

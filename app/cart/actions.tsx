@@ -45,7 +45,7 @@ export async function handleChangeCart(productId: number, quantityId: number) {
     // If the product already exists in the cart, update its quantity
     newCart = currentCart.map((item: Item, index: Index) => {
       if (index === itemToUpdateIndex) {
-        const updatedQuantity = quantityId;
+        const updatedQuantity = Math.max(quantityId, 0);
 
         // update its quantity
         return {
