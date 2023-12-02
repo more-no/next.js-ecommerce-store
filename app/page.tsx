@@ -6,24 +6,29 @@ export default async function HomePage() {
 
   return (
     <main>
-      <h1>These are our Products: </h1>
-      <div>
+      <div className="flex flex-col flex-wrap items-center">
         {products.map((product) => {
           return (
             <div key={`product-div-${product.id}`}>
-              <Link
-                data-test-id={`product-${product.id}`}
-                href={`/products/${product.id}`}
-              >
-                <h1>{product.name}</h1>
+              <h2 className="card-title text-4xl pt-20">{product.name}</h2>
+              <div className="card-body">
                 <img
                   src={`/images/${product.name}.jpg`}
                   alt={product.name}
                   width={450}
                   height={450}
+                  className="rounded-full"
                 />
-              </Link>
-              <br />
+                <div className="card-actions justify-center pt-6">
+                  <Link
+                    data-test-id={`product-${product.id}`}
+                    href={`/products/${product.id}`}
+                    className="btn btn-primary"
+                  >
+                    See more
+                  </Link>
+                </div>
+              </div>
             </div>
           );
         })}

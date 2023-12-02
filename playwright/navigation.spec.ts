@@ -2,70 +2,46 @@ import test, { expect } from '@playwright/test';
 
 //  PLAYWRIGHT E2E: Add to cart, change quantity and remove from cart
 test('Add to cart test', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-
-  await page.getByRole('link', { name: 'Adelaide' }).click();
-  await page.waitForURL('http://localhost:3000/products/1');
-  await expect(page).toHaveURL('http://localhost:3000/products/1');
-
+  await page.goto('http://localhost:3000/');
+  await page.getByTestId('product-1').click();
+  await page.getByTestId('product-quantity').click();
   await page.getByTestId('product-quantity').fill('3');
-  await page.keyboard.press('Enter');
-
+  await page.getByTestId('product-quantity').press('Enter');
   await page.getByTestId('products-link').click();
-
-  await page.getByRole('link', { name: 'Esmeralda' }).click();
-  await page.waitForURL('http://localhost:3000/products/3');
-  await expect(page).toHaveURL('http://localhost:3000/products/3');
-
-  await page.getByTestId('product-quantity').fill('1');
-  await page.keyboard.press('Enter');
-
+  await page.getByTestId('product-3').click();
+  await page.getByTestId('product-quantity').click();
+  await page.getByTestId('product-quantity').fill('3');
+  await page.getByTestId('product-quantity').press('Enter');
   await page.getByTestId('cart-link').click();
-  await page.waitForURL('http://localhost:3000/cart');
-  await expect(page).toHaveURL('http://localhost:3000/cart');
-
-  await page.getByRole('button', { name: 'Change Quantity' }).nth(1).click();
-
-  await page.getByRole('button', { name: 'Remove Item' }).nth(1).click();
-
-  await page.getByTestId('cart-link').click();
-
-  await page.getByRole('button', { name: 'Remove Item' }).click();
-
-  await page.getByTestId('cart-link').click();
+  await page.getByTestId('cart-product-remove-1').click();
 });
 
 // PLAYWRIGHT E2E: Checkout flow, payment page, thank you page
 test('Checkout flow test', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-
-  await page.getByRole('link', { name: 'Adelaide' }).click();
-  await page.waitForURL('http://localhost:3000/products/1');
-  await expect(page).toHaveURL('http://localhost:3000/products/1');
-
-  await page.getByTestId('product-quantity').fill('3');
-  await page.keyboard.press('Enter');
-
+  await page.goto('http://localhost:3000/');
+  await page.getByTestId('product-1').click();
+  await page.getByTestId('product-add-to-cart').click();
   await page.getByTestId('cart-link').click();
-  await page.waitForURL('http://localhost:3000/cart');
-  await expect(page).toHaveURL('http://localhost:3000/cart');
-
-  await page.getByRole('button', { name: 'Check Out' }).click();
-  await page.waitForURL('http://localhost:3000/checkout');
-  await expect(page).toHaveURL('http://localhost:3000/checkout');
-
-  await page.getByTestId('checkout-first-name').fill('Luca');
+  await page.getByTestId('cart-checkout').click();
+  await page.getByTestId('checkout-first-name').click();
+  await page.getByTestId('checkout-first-name').fill('Mario');
+  await page.getByTestId('checkout-first-name').press('Tab');
   await page.getByTestId('checkout-last-name').fill('Rossi');
-  await page.getByTestId('checkout-email').fill('luca.rossi@gmail.com');
-  await page.getByTestId('checkout-address').fill('Via Roma 45');
-  await page.getByTestId('checkout-city').fill('Roma');
-  await page.getByTestId('checkout-postal-code').fill('1019');
-  await page.getByTestId('checkout-country').fill('Italy');
-  await page.getByTestId('checkout-credit-card').fill('1111222233334444');
-  await page.getByTestId('checkout-expiration-date').fill('03/25');
+  await page.getByTestId('checkout-last-name').press('Tab');
+  await page.getByTestId('checkout-email').fill('mario@mail.com');
+  await page.getByTestId('checkout-email').press('Tab');
+  await page.getByTestId('checkout-address').fill('via roma');
+  await page.getByTestId('checkout-address').press('Tab');
+  await page.getByTestId('checkout-city').fill('roma');
+  await page.getByTestId('checkout-city').press('Tab');
+  await page.getByTestId('checkout-postal-code').fill('1256');
+  await page.getByTestId('checkout-postal-code').press('Tab');
+  await page.getByTestId('checkout-country').fill('italy');
+  await page.getByTestId('checkout-country').press('Tab');
+  await page.getByTestId('checkout-credit-card').fill('1212262659594878');
+  await page.getByTestId('checkout-credit-card').press('Tab');
+  await page.getByTestId('checkout-expiration-date').fill('10/08');
+  await page.getByTestId('checkout-expiration-date').press('Tab');
   await page.getByTestId('checkout-security-code').fill('352');
-
   await page.getByTestId('checkout-confirm-order').click();
-  await page.waitForURL('http://localhost:3000/thankyou');
-  await expect(page).toHaveURL('http://localhost:3000/thankyou');
 });

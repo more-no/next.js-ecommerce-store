@@ -10,8 +10,9 @@ export function AddToCartButton(props: Props) {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <form className="btn btn-ghost">
+    <form className="mt-6">
       <input
+        className="text-xl"
         data-test-id="product-quantity"
         value={quantity}
         type="number"

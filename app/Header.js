@@ -17,10 +17,10 @@ export default function Header() {
   });
 
   return (
-    <header className="navbar bg-base-100 mb-60 rounded-box">
+    <header className="navbar bg-base-100rounded-box shadow-lg">
       <div className="navbar-start">
-        <Link className="btn btn-ghost normal-case text-xl" href="/">
-          Logo
+        <Link className="normal-case text-xl" href="/">
+          <img src="/images/logo.jpg" width="120" alt="logo - home" />
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
@@ -34,7 +34,7 @@ export default function Header() {
             To Your Cart
           </Link>
         </div>
-        <div className="btn">
+        <div className="btn btn-ghost normal-case text-xl">
           <span>Your Items: </span>
           <span data-test-id="cart-count">{count}</span>
         </div>
