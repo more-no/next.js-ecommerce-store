@@ -1,4 +1,4 @@
-import test, { expect } from '@playwright/test';
+import test from '@playwright/test';
 
 //  PLAYWRIGHT E2E: Add to cart, change quantity and remove from cart
 test('Add to cart test', async ({ page }) => {
