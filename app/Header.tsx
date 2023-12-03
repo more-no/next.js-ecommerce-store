@@ -9,7 +9,7 @@ export default function Header() {
 
   const currentCart = currentCartCookie ? parseJson(currentCartCookie) : [];
 
-  currentCart.forEach((item) => {
+  currentCart.forEach((item: { quantity: number }) => {
     // Ensure the quantity is not negative
     const nonNegativeQuantity = Math.max(item.quantity, 0);
 
@@ -20,7 +20,7 @@ export default function Header() {
     <header className="navbar bg-base-100rounded-box shadow-lg">
       <div className="navbar-start">
         <Link className="normal-case text-xl" href="/">
-          <img src="/images/logo.jpg" width="120" alt="logo - home" />
+          <img src="/images/logo.jpg" width="120" alt="home page" />
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">

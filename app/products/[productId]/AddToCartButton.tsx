@@ -22,7 +22,7 @@ export function AddToCartButton(props: Props) {
         }}
       />
       <button
-        className="btn"
+        className="btn btn-secondary"
         data-test-id="product-add-to-cart"
         formAction={async () => await handleCart(props.productId, quantity)}
       >

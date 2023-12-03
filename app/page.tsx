@@ -10,7 +10,9 @@ export default async function HomePage() {
         {products.map((product) => {
           return (
             <div key={`product-div-${product.id}`}>
-              <h2 className="card-title text-4xl pt-20">{product.name}</h2>
+              <h2 className="card-title text-4xl font-bold pt-20">
+                {product.name}
+              </h2>
               <div className="card-body">
                 <img
                   src={`/images/${product.name}.jpg`}

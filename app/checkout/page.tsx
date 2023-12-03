@@ -79,7 +79,7 @@ export default function CheckoutPage() {
               <input
                 placeholder="xxxx"
                 pattern="[0-9]+"
-                maxLength="4"
+                maxLength={4}
                 name="userPostalCode"
                 data-test-id="checkout-postal-code"
                 required
@@ -104,7 +104,7 @@ export default function CheckoutPage() {
               Credit Card:
               <input
                 placeholder="xxxx-xxxx-xxxx-xxxx"
-                maxLength="16"
+                maxLength={16}
                 pattern="[0-9\s]{13,19}"
                 name="userCreditCard"
                 data-test-id="checkout-credit-card"
@@ -119,7 +119,7 @@ export default function CheckoutPage() {
               <input
                 pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
                 placeholder="MM/YY"
-                maxLength="5"
+                maxLength={5}
                 name="userExpirationDate"
                 autoComplete="cc-exp"
                 data-test-id="checkout-expiration-date"
@@ -133,7 +133,7 @@ export default function CheckoutPage() {
               Security Code:
               <input
                 type="tel"
-                maxLength="3"
+                maxLength={3}
                 pattern="[0-9]+"
                 placeholder="CVC"
                 name="userSecurityCode"

@@ -32,11 +32,10 @@ export default async function SingleProductPage(props: Props) {
               data-test-id="product-image"
               src={`/images/${singleProduct.name}.jpg`}
               width={400}
-              height={400}
               alt={singleProduct.name}
               className="rounded-3xl place-self-center"
             />
-            <h1 className="card-title"> {singleProduct.name} </h1>
+            <h1 className="card-title font-bold"> {singleProduct.name} </h1>
             <p>{singleProduct.description}</p>
             <div className="flex flex-row flex-nowrap text-xl">
               <h3 data-test-id="product-price" className="mr-6">
