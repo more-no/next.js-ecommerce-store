@@ -6,8 +6,14 @@ export function generateMetadata() {
 
 export default function ThankyouPage() {
   return (
-    <div>
-      <h1>Thank you for your order</h1>
+    <div className="hero min-h-screen">
+      <div className="hero-content text-center text-neutral-content">
+        <div className="max-w-md">
+          <div className="text-6xl font-bold">Thank you for your order!</div>
+        </div>
+      </div>
     </div>
   );
 }
+
+// bg-opacity-60

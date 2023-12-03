@@ -1,4 +1,3 @@
-import CheckoutButton from './CheckoutButton';
 import DisplayItem from './DisplayItem';
 import { getProducts } from '../../database/products';
 import { getCookie } from '../../utilities/cookies';
@@ -22,7 +21,6 @@ export default async function CartPage() {
   return (
     <div>
       <DisplayItem products={products} cart={currentCart} />
-      <CheckoutButton cart={currentCart} />
     </div>
   );
 }
